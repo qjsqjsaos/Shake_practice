@@ -29,4 +29,12 @@
         android:text="Z: "
         android:textSize="40dp" />
 
+    <ImageView
+        android:id="@+id/smile"
+        android:padding="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_free_icon_joke_185034"/>
+
+
 </LinearLayout>

@@ -6,6 +6,8 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.shake_practice.databinding.ActivityMainBinding
@@ -38,7 +40,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         accelCurrent = SensorManager.GRAVITY_EARTH //지구 중력값 주기
         accelLast = SensorManager.GRAVITY_EARTH
 
-
     }
 
     //흔들었을때 센서 감지
@@ -63,6 +64,14 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         //액셀 치수가 30이 넘어가면 흔들었다고 휴대폰이 판단한다.
         if(accel > 30){
             Log.d(TAG, "흔들었다.")
+
+            //화난얼굴을 보여주고 1초뒤에 웃는 얼굴을 보여준다.
+            binding.smile.setImageResource(R.drawable.ic_free_icon_angry_187140) //화난 얼굴
+
+            //웃는 얼굴
+            Handler(Looper.myLooper()!!).postDelayed({
+                binding.smile.setImageResource(R.drawable.ic_free_icon_joke_185034) //웃는 얼굴
+            }, 1000L)
         }
     }
 
